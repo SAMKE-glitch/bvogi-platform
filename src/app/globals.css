@@ -1,16 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-blue-50: #eff6ff;
-  --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
-  --color-orange-500: #f97316;
-  --color-orange-600: #ea580c;
-  --color-gray-50: #f9fafb;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-900: #111827;
+  /* BVOGI Brand Colors */
+  --color-bvogi-gold: #FFD700;
+  --color-bvogi-gold-dark: #DAA520;
+  --color-bvogi-black: #000000;
+  --color-bvogi-gray: #1a1a1a;
 }
 
 :root {
