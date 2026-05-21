@@ -1,0 +1,26 @@
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  content: [
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        blue: {
+          50: '#eff6ff',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        },
+        orange: {
+          500: '#f97316',
+          600: '#ea580c',
+        },
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
