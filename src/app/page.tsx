@@ -127,6 +127,12 @@ export default function Home() {
     }
   };
 
+  // Split the tagline to color "Global Impact" in yellow
+  const tagline = settings?.tagline || 'Positioned for Global Impact';
+  const taglineParts = tagline.split('Global Impact');
+  const beforeGlobal = taglineParts[0];
+  const hasGlobalImpact = tagline.includes('Global Impact');
+
   return (
     <main className="min-h-screen">
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -215,9 +221,19 @@ export default function Home() {
                 <p className="text-xl md:text-2xl mt-3 text-white/90">Believer's Voice for Global Impact</p>
                 <p className="text-md md:text-lg mt-2 text-yellow-300 italic font-semibold">{settings?.scripture || '"A Trumpet in Zion" — Joel 2:1'}</p>
               </div>
+              
+              {/* Tagline with colored "Global Impact" */}
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                {settings?.tagline || 'Positioned for'} <span className="text-yellow-400">Global Impact</span>
+                {hasGlobalImpact ? (
+                  <>
+                    {beforeGlobal}
+                    <span className="text-yellow-400">Global Impact</span>
+                  </>
+                ) : (
+                  tagline
+                )}
               </h2>
+              
               <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-12">
                 A movement advocating for values-driven change, shaping policy with purpose, and raising leaders through mentorship.
               </p>
