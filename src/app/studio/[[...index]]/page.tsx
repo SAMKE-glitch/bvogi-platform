@@ -1,0 +1,11 @@
+'use client';
+
+import { NextStudio } from 'next-sanity/studio';
+import config from '../../../../sanity.config';
+
+// Force client-side only rendering
+export const dynamic = 'force-static';
+
+export default function StudioPage() {
+  return <NextStudio config={config} />;
+}
