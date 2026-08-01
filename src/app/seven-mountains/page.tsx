@@ -154,7 +154,6 @@ export default function SevenMountainsPage() {
               <h4 className="font-semibold mb-4 text-yellow-400">Connect</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>Email: info@bvogi.org</li>
-                <li>Prayer Meeting: Monday 7PM (EAT)</li>
               </ul>
             </div>
             <div>

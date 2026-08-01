@@ -19,43 +19,90 @@ interface Leader {
   phone?: string;
 }
 
-// Temporary mock data until Sanity is fully connected
+// Leadership data - BVOGI Team
 const mockLeaders: Leader[] = [
+  // National Executive Committee (NEC)
   {
     _id: '1',
-    name: 'John Mwangi',
+    name: 'Joyce Wanjalah Lay',
     title: 'Chairperson',
     category: 'nec',
     role: 'chairperson',
     isCurrentTerm: true,
-    termStart: '2024',
-    termEnd: '2025',
+    termStart: '2025',
+    termEnd: '2026',
     biography: 'Leading BVOGI with vision and dedication for global impact.',
     email: 'chairperson@bvogi.org',
     phone: '+254700000000'
   },
   {
     _id: '2',
-    name: 'Jane Akinyi',
-    title: 'Secretary General',
+    name: 'David Ben Jesse',
+    title: 'Secretary',
     category: 'nec',
     role: 'secretary',
     isCurrentTerm: true,
-    termStart: '2024',
-    termEnd: '2025',
+    termStart: '2025',
+    termEnd: '2026',
     biography: 'Committed to organizational excellence and member engagement.',
     email: 'secretary@bvogi.org'
   },
   {
     _id: '3',
-    name: 'Dr. Samuel Otieno',
-    title: 'Board Chair',
-    category: 'trustees',
-    role: 'chairperson',
+    name: 'Rozina Wawuda Mwakideu',
+    title: 'Treasurer',
+    category: 'nec',
+    role: 'treasurer',
     isCurrentTerm: true,
-    termStart: '2023',
+    termStart: '2025',
     termEnd: '2026',
+    biography: 'Ensuring financial integrity and stewardship.',
+    email: 'treasurer@bvogi.org'
+  },
+  // Board of Trustees
+  {
+    _id: '4',
+    name: 'Stephen Isaiah James',
+    title: 'Board Member',
+    category: 'trustees',
+    role: 'member',
+    isCurrentTerm: true,
+    termStart: '2024',
+    termEnd: '2027',
     biography: 'Providing strategic guidance and governance oversight.'
+  },
+  {
+    _id: '5',
+    name: 'Allan Kimonge',
+    title: 'Board Member',
+    category: 'trustees',
+    role: 'member',
+    isCurrentTerm: true,
+    termStart: '2024',
+    termEnd: '2027',
+    biography: 'Committed to BVOGI\'s mission and vision.'
+  },
+  {
+    _id: '6',
+    name: 'Elsie Newa',
+    title: 'Board Member',
+    category: 'trustees',
+    role: 'member',
+    isCurrentTerm: true,
+    termStart: '2024',
+    termEnd: '2027',
+    biography: 'Dedicated to community transformation and impact.'
+  },
+  {
+    _id: '7',
+    name: 'Ann Murathe',
+    title: 'Board Member',
+    category: 'trustees',
+    role: 'member',
+    isCurrentTerm: true,
+    termStart: '2024',
+    termEnd: '2027',
+    biography: 'Passionate about youth development and empowerment.'
   }
 ];
 
@@ -91,7 +138,7 @@ export default function LeadershipSection() {
   if (loading) {
     return (
       <div className="text-center py-12">
-        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500"></div>
+        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
         <p className="mt-2 text-gray-500">Loading leadership...</p>
       </div>
     );
@@ -102,13 +149,13 @@ export default function LeadershipSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Leadership</h2>
-          <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Meet the dedicated team leading BVOGI towards global impact
           </p>
         </div>
 
-        {/* Category Filters */}
+        {/* Category Filters - Blue theme */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((cat) => (
             <button
@@ -116,8 +163,8 @@ export default function LeadershipSection() {
               onClick={() => setSelectedCategory(cat.value)}
               className={`px-6 py-2 rounded-full font-semibold transition ${
                 selectedCategory === cat.value
-                  ? 'bg-yellow-500 text-white'
-                  : 'bg-white text-gray-700 hover:bg-yellow-100 border border-yellow-200'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-white text-gray-700 hover:bg-blue-50 border border-blue-200'
               }`}
             >
               <span className="mr-2">{cat.icon}</span>
@@ -126,11 +173,11 @@ export default function LeadershipSection() {
           ))}
         </div>
 
-        {/* Current Term Leaders */}
+        {/* Current Term Leaders - Blue theme */}
         {currentLeaders.length > 0 && (
           <div className="mb-16">
             <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-              <Star className="text-yellow-600" size={24} />
+              <Star className="text-blue-600" size={24} />
               Current Leadership Team
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -140,26 +187,26 @@ export default function LeadershipSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden"
+                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden border border-blue-100 hover:border-blue-300"
                 >
                   <div className="p-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Users className="text-yellow-600" size={32} />
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Users className="text-blue-600" size={32} />
                     </div>
                     <h4 className="text-xl font-bold text-gray-900 text-center">{leader.name}</h4>
-                    <p className="text-yellow-600 font-semibold text-center mb-2">{leader.title}</p>
+                    <p className="text-blue-600 font-semibold text-center mb-2">{leader.title}</p>
                     <p className="text-sm text-gray-500 text-center mb-3">{leader.role?.toUpperCase()}</p>
                     {leader.biography && (
                       <p className="text-gray-600 text-sm mb-4 text-center">{leader.biography}</p>
                     )}
                     <div className="flex justify-center gap-3">
                       {leader.email && (
-                        <a href={`mailto:${leader.email}`} className="text-gray-500 hover:text-yellow-600 transition">
+                        <a href={`mailto:${leader.email}`} className="text-gray-500 hover:text-blue-600 transition">
                           <Mail size={18} />
                         </a>
                       )}
                       {leader.phone && (
-                        <a href={`tel:${leader.phone}`} className="text-gray-500 hover:text-yellow-600 transition">
+                        <a href={`tel:${leader.phone}`} className="text-gray-500 hover:text-blue-600 transition">
                           <Phone size={18} />
                         </a>
                       )}
@@ -190,10 +237,10 @@ export default function LeadershipSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="bg-white rounded-xl shadow-md p-6"
+                  className="bg-white rounded-xl shadow-md p-6 border border-gray-100"
                 >
                   <h4 className="text-lg font-semibold text-gray-900 text-center">{leader.name}</h4>
-                  <p className="text-yellow-600 text-sm text-center mb-1">{leader.title}</p>
+                  <p className="text-blue-600 text-sm text-center mb-1">{leader.title}</p>
                   <p className="text-xs text-gray-400 text-center">
                     {leader.termStart && `${leader.termStart} - `}{leader.termEnd}
                   </p>
