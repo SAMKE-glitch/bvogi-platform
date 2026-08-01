@@ -93,6 +93,7 @@ export default function Home() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Seven Mountains', href: '/seven-mountains' },
     { name: 'Events', href: '#events' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -453,6 +454,7 @@ export default function Home() {
                 <ul className="space-y-2 text-gray-400">
                   <li><a href="#home" className="hover:text-yellow-400 transition">Home</a></li>
                   <li><a href="#about" className="hover:text-yellow-400 transition">About</a></li>
+                  <li><a href="/seven-mountains" className="hover:text-yellow-400 transition">Seven Mountains</a></li>
                   <li><a href="#events" className="hover:text-yellow-400 transition">Events</a></li>
                   <li><a href="#contact" className="hover:text-yellow-400 transition">Contact</a></li>
                 </ul>
