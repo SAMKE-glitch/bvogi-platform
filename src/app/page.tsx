@@ -128,9 +128,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Navbar - Navy theme matching Seven Mountains */}
+      {/* Navbar - White/Light like before */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0D1B2A]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0D1B2A]/80 backdrop-blur-sm shadow-md py-5'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-white/80 backdrop-blur-sm shadow-md py-5'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -139,28 +139,28 @@ export default function Home() {
                 <>
                   <img src={logoUrl} alt="BVOGI Logo" className="h-10 w-auto object-contain" />
                   <span className="text-xl font-bold hidden sm:inline">
-                    <span className="text-white">BV</span>
+                    <span className="text-gray-800">BV</span>
                     <span className="text-[#D4A017]">OGI</span>
                   </span>
                 </>
               ) : (
                 <div className="text-2xl font-bold">
-                  <span className="text-white">BV</span>
+                  <span className="text-gray-900">BV</span>
                   <span className="text-[#D4A017]">OGI</span>
                 </div>
               )}
-              <div className="hidden md:block text-xs text-[#8A9BB0] ml-1">Joel 2:1</div>
+              <div className="hidden md:block text-xs text-gray-500 ml-1">Joel 2:1</div>
             </div>
 
             <div className="hidden md:flex space-x-8">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="text-[#8A9BB0] hover:text-[#D4A017] font-medium transition">
+                <a key={link.name} href={link.href} className="text-gray-700 hover:text-[#D4A017] font-medium transition">
                   {link.name}
                 </a>
               ))}
             </div>
 
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-[#8A9BB0] hover:text-[#D4A017] transition">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-gray-700 hover:text-[#D4A017] transition">
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
@@ -177,7 +177,7 @@ export default function Home() {
           {isMobileMenuOpen && (
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mt-4 pb-4">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="block py-2 text-[#8A9BB0] hover:text-[#D4A017] font-medium transition" onClick={() => setIsMobileMenuOpen(false)}>
+                <a key={link.name} href={link.href} className="block py-2 text-gray-700 hover:text-[#D4A017] font-medium transition" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.name}
                 </a>
               ))}
