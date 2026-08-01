@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { client } from '../../sanity/lib/client';
 import { urlFor } from '../../sanity/lib/image';
