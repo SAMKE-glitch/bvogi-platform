@@ -193,7 +193,11 @@ export default function Home() {
           {heroUrl ? (
             <>
               <div className="absolute inset-0">
-                <img src={heroUrl} alt="BVOGI Hero Background" className="w-full h-full object-cover object-center" />
+                <img 
+                  src={heroUrl} 
+                  alt="BVOGI Hero Background" 
+                  className="w-full h-full object-cover object-center" 
+                />
                 {/* Gradient overlay that darkens at the bottom and fades to white at the transition */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-white/0"></div>
                 {/* Additional overlay at the very bottom for smooth transition */}
