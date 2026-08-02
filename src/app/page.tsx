@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Clock, Heart, Globe, Award, Users, ChevronRight, Video, BookOpen, TrendingUp, Shield, Volume2, FileText, School, Menu, X } from 'lucide-react';
+import { Calendar, MapPin, Clock, Heart, Globe, Award, Users, ChevronRight, Video, BookOpen, TrendingUp, Shield, Volume2, FileText, School, Menu, X, Church, Home as HomeIcon, GraduationCap, Scale, Radio, Palette, Briefcase } from 'lucide-react';
 import Image from 'next/image';
-import LeadershipSection from '../components/LeadershipSection';
 import { client } from '../sanity/lib/client';
 import { urlFor } from '../sanity/lib/image';
 import GallerySection from '../components/GallerySection';
@@ -21,9 +20,6 @@ interface Settings {
 interface RegistrationLinks {
   registrationLink?: string;
   qrCodeImage?: any;
-  prayerMeetingLink?: string;
-  prayerMeetingQrCode?: any;
-  whatsappGroupLink?: string;
   contactEmail?: string;
   contactPhone?: string;
 }
@@ -36,7 +32,6 @@ export default function Home() {
   const [heroUrl, setHeroUrl] = useState<string | null>(null);
   const [registrationLinks, setRegistrationLinks] = useState<RegistrationLinks | null>(null);
   const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
-  const [prayerQrCodeUrl, setPrayerQrCodeUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,9 +64,6 @@ export default function Home() {
         const registrationData = await client.fetch(`*[_type == "registration"][0] {
           registrationLink,
           qrCodeImage,
-          prayerMeetingLink,
-          prayerMeetingQrCode,
-          whatsappGroupLink,
           contactEmail,
           contactPhone
         }`);
@@ -79,9 +71,6 @@ export default function Home() {
         
         if (registrationData?.qrCodeImage) {
           setQrCodeUrl(urlFor(registrationData.qrCodeImage).url());
-        }
-        if (registrationData?.prayerMeetingQrCode) {
-          setPrayerQrCodeUrl(urlFor(registrationData.prayerMeetingQrCode).url());
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -92,9 +81,8 @@ export default function Home() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Seven Mountains', href: '/seven-mountains' },
-    { name: 'Events', href: '#events' },
+    { name: 'Mission & Vision', href: '#mission-vision' },
+    { name: 'What We Do', href: '#what-we-do' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -107,9 +95,9 @@ export default function Home() {
   };
 
   const handleLearnMoreClick = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    const missionSection = document.getElementById('mission-vision');
+    if (missionSection) {
+      missionSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -120,7 +108,6 @@ export default function Home() {
     }
   };
 
-  // Split the tagline to color "Global Impact" in gold
   const tagline = settings?.tagline || 'Positioned for Global Impact';
   const taglineParts = tagline.split('Global Impact');
   const beforeGlobal = taglineParts[0];
@@ -128,7 +115,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Navbar - White/Light like before */}
+      {/* Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-white/80 backdrop-blur-sm shadow-md py-5'
       }`}>
@@ -169,7 +156,7 @@ export default function Home() {
                 onClick={handleRegisterClick}
                 className="bg-[#D4A017] text-[#0D1B2A] px-5 py-2 rounded-lg font-semibold hover:bg-[#E8B830] transition shadow-md"
               >
-                Join Movement
+                Register as Member
               </button>
             </div>
           </div>
@@ -185,7 +172,7 @@ export default function Home() {
                 onClick={handleRegisterClick}
                 className="mt-3 bg-[#D4A017] text-[#0D1B2A] px-5 py-2 rounded-lg font-semibold hover:bg-[#E8B830] transition w-full"
               >
-                Join Movement
+                Register as Member
               </button>
             </motion.div>
           )}
@@ -209,27 +196,16 @@ export default function Home() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
               <div className="mb-6">
+                <p className="text-sm md:text-base text-[#D4A017] uppercase tracking-[0.25em] font-semibold mb-3">A Trumpet in Zion — Joel 2:1</p>
                 <h1 className="text-5xl md:text-7xl font-bold tracking-wider text-white">
                   <span className="text-white">BV</span>
                   <span className="text-[#D4A017]">OGI</span>
+                  <span className="text-white text-3xl md:text-4xl block mt-2">— Believers' Voice for Global Impact</span>
                 </h1>
-                <p className="text-xl md:text-2xl mt-3 text-white/90">Believer's Voice for Global Impact</p>
-                <p className="text-md md:text-lg mt-2 text-[#D4A017] italic font-semibold">{settings?.scripture || '"A Trumpet in Zion" — Joel 2:1'}</p>
               </div>
               
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-                {hasGlobalImpact ? (
-                  <>
-                    {beforeGlobal}
-                    <span className="text-[#D4A017]">Global Impact</span>
-                  </>
-                ) : (
-                  tagline
-                )}
-              </h2>
-              
-              <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12">
-                A movement advocating for values-driven change, shaping policy with purpose, and raising leaders through mentorship.
+              <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+                A platform for believers across Kenya, and eventually the globe, to speak into the nations they live in — through advocacy, research, and policy development.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -237,7 +213,7 @@ export default function Home() {
                   onClick={handleRegisterClick}
                   className="bg-[#D4A017] hover:bg-[#E8B830] text-[#0D1B2A] px-8 py-3 rounded-lg font-semibold transition shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
-                  Join the Movement
+                  Register as Member
                 </button>
                 <button 
                   onClick={handleLearnMoreClick}
@@ -250,136 +226,88 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About BVOGI Section */}
-        <section id="about" className="py-20 bg-white scroll-mt-16">
+        {/* Mission & Vision Section */}
+        <section id="mission-vision" className="py-20 bg-white scroll-mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About BVOGI</h2>
-              <div className="w-20 h-1 bg-[#D4A017] mx-auto"></div>
-            </div>
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                BVOGI (Believer's Voice for Global Impact) is a Christian youth movement focused on 
-                authentic worship, leadership development, systems building, community transformation, and spiritual growth.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                We are raising a generation of young believers who will impact their communities 
-                and nations for Christ through intentional discipleship, mentorship, and strategic outreach.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Vision & Mission Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Vision & Mission</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Mission & Vision</h2>
               <div className="w-20 h-1 bg-[#D4A017] mx-auto"></div>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} className="bg-white rounded-2xl p-8 shadow-lg border border-[#D4A017]/20">
-                <Globe className="text-[#D4A017] mb-4" size={48} />
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Vision</h3>
-                <p className="text-xl font-semibold text-[#D4A017] mb-2">Positioned for Global Impact</p>
-                <p className="text-gray-700">To see believers strategically positioned across nations, influencing every sphere of society for God's kingdom and global transformation.</p>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} className="bg-white rounded-2xl p-8 shadow-lg border border-[#D4A017]/20">
+              <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-[#D4A017]/20">
                 <Heart className="text-[#D4A017] mb-4" size={48} />
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Mission</h3>
-                <p className="text-gray-700">To promote education, good governance, and equity in the distribution of resources for social and economic development among vulnerable communities.</p>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Mission</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  To contribute towards social & economic development for marginalized communities by promoting good governance, holistic education & peace through advocacy, research and policy development.
+                </p>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-[#D4A017]/20">
+                <Globe className="text-[#D4A017] mb-4" size={48} />
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Vision</h3>
+                <p className="text-xl font-semibold text-[#D4A017] mb-2">To be Positioned for Global Impact.</p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Core Focus Areas */}
-        <section className="py-20 bg-white">
+        {/* What We Believe & Do Section */}
+        <section id="what-we-do" className="py-20 bg-gray-50 scroll-mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Focus Areas</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What We Believe & Do</h2>
               <div className="w-20 h-1 bg-[#D4A017] mx-auto"></div>
-              <p className="text-xl text-gray-600 mt-4">#BelieversNeedAVoice</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                BVoGI is not another church programme — it is a platform for believers across Kenya, and eventually the globe, to speak into the nations they live in. We exist because faith was never meant to stay silent in the public square: in governance, education, media, business, and culture, believers have a voice and a mandate to use it.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                We are believers, men and women who believe in the Gospel of Christ, are saved and Spirit-filled, called not just to feel transformed but to live a life of impact. Our work is to organise that calling into action: research, advocacy, and leadership that shapes real outcomes in the communities and nations we belong to.
+              </p>
+            </div>
+
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-800">We pursue this through seven interconnected areas of influence:</h3>
+            </div>
+
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
-                { icon: Volume2, title: "Authentic Voice", desc: "An authentic voice for believers in society" },
-                { icon: TrendingUp, title: "Values-Driven Change", desc: "Advocating for values-driven transformation" },
-                { icon: FileText, title: "Policy Shaping", desc: "Shaping policy with purpose and conviction" },
-                { icon: BookOpen, title: "Research", desc: "Driving research that informs impact" },
-                { icon: Users, title: "Leadership", desc: "Raising leaders through mentorship" },
-                { icon: School, title: "Education", desc: "Promoting holistic, faith-based education" }
-              ].map((focus, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.1 }} className="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl text-center hover:border-[#D4A017] border border-transparent">
-                  <focus.icon className="text-[#D4A017] mx-auto mb-4" size={48} />
-                  <h3 className="text-xl font-bold mb-2 text-gray-800">{focus.title}</h3>
-                  <p className="text-gray-600">{focus.desc}</p>
-                </motion.div>
-              ))}
+                { icon: Church, title: "Religion & Spiritual Development", desc: "Cultivating spiritually mature believers and transformative leaders who advance biblical values in communities and nations." },
+                { icon: HomeIcon, title: "Family & Community Development", desc: "Strengthening families and building resilient, socially responsible communities." },
+                { icon: GraduationCap, title: "Education & Capacity Building", desc: "Equipping believers with the knowledge, skills, and research needed for leadership and national development." },
+                { icon: Scale, title: "Governance, Leadership & Civic Engagement", desc: "Promoting ethical leadership, good governance, justice, accountability, and responsible citizenship." },
+                { icon: Radio, title: "Media, Communication & Information", desc: "Using media platforms to inform, inspire, and shape culture with truth and clarity." },
+                { icon: Palette, title: "Arts, Culture & Creative Expression", desc: "Shaping culture and inspiring transformation through creativity." },
+                { icon: Briefcase, title: "Business, Entrepreneurship & Economic Empowerment", desc: "Fostering economic transformation through entrepreneurship, ethical business, and financial stewardship." }
+              ].map((area, idx) => {
+                const IconComponent = area.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition text-center hover:border-[#D4A017] border border-transparent"
+                  >
+                    <IconComponent className="text-[#D4A017] mx-auto mb-4" size={40} />
+                    <h3 className="text-base font-bold mb-2 text-gray-800">{area.title}</h3>
+                    <p className="text-sm text-gray-600">{area.desc}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* Leaders Selection Criteria - Navy/Gold theme */}
-        <section className="py-20 bg-[#0D1B2A]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Leaders Selection Criteria</h2>
-              <div className="w-20 h-1 bg-[#D4A017] mx-auto"></div>
-            </div>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { icon: Shield, title: "Born Again", desc: "A genuine relationship with Christ" },
-                { icon: Award, title: "Faithful", desc: "Proven character and faithfulness" },
-                { icon: Heart, title: "Committed", desc: "Committed to the Vision and Mission" },
-                { icon: Users, title: "Mobilizer", desc: "Able to mobilize others effectively" }
-              ].map((criteria, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.1 }} className="text-center p-6 bg-[#1A2E45] rounded-xl shadow-lg hover:shadow-xl border border-[#D4A017]/20">
-                  <criteria.icon className="text-[#D4A017] mx-auto mb-4" size={40} />
-                  <h3 className="text-lg font-bold mb-2 text-white">{criteria.title}</h3>
-                  <p className="text-[#8A9BB0] text-sm">{criteria.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Gallery Section */}
+        <GallerySection />
 
-        <LeadershipSection />
-
-        {/* Upcoming Events - Navy/Gold theme */}
-        <section id="events" className="py-20 bg-white scroll-mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
-              <div className="w-20 h-1 bg-[#D4A017] mx-auto"></div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { title: "Chapter Meeting", date: "Every Saturday", time: "10:00 AM", venue: "Nairobi Chapter", type: "Weekly" },
-                { title: "Leadership Summit", date: "Coming Soon", time: "TBA", venue: "Online", type: "Training" },
-                { title: "Global Impact Conference", date: "Annual Event", time: "TBA", venue: "Multiple Locations", type: "Main Event" }
-              ].map((event, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.1 }} className="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-                  <Calendar className="text-[#D4A017] mb-4" size={24} />
-                  <h3 className="text-xl font-bold mb-2 text-gray-800">{event.title}</h3>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex items-center gap-2"><Calendar size={16} /><span>{event.date}</span></div>
-                    <div className="flex items-center gap-2"><Clock size={16} /><span>{event.time}</span></div>
-                    <div className="flex items-center gap-2"><MapPin size={16} /><span>{event.venue}</span></div>
-                  </div>
-                  <span className="inline-block mt-3 text-sm bg-[#D4A017]/10 text-[#D4A017] px-2 py-1 rounded-full">{event.type}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Registration CTA - Navy/Gold theme */}
+        {/* Registration CTA */}
         <section className="py-20 bg-[#0D1B2A]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Join the Movement Today!</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Join the Movement Today</h2>
             <p className="text-xl text-[#8A9BB0] mb-4 font-semibold">Be informed. Be involved. Be the impact.</p>
-            <p className="text-lg mb-8 text-[#D4A017]">#BelieversNeedAVoice #BVoGI #BeTheVoice</p>
             
             {qrCodeUrl && (
               <div className="mb-6">
@@ -393,68 +321,47 @@ export default function Home() {
                 onClick={handleRegisterClick}
                 className="bg-[#D4A017] text-[#0D1B2A] px-8 py-3 rounded-lg font-semibold hover:bg-[#E8B830] transition shadow-lg transform hover:scale-105"
               >
-                📱 Register Now
+                Register as Member
               </button>
-              <a 
-                href={`mailto:${registrationLinks?.contactEmail || 'info@bvogi.org'}`}
-                className="border-2 border-[#D4A017] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#D4A017] hover:text-[#0D1B2A] transition text-center"
-              >
-                Contact Us
-              </a>
+            </div>
+
+            <div className="mt-6 flex flex-wrap justify-center gap-6 text-[#8A9BB0] text-sm">
+              <span className="text-[#D4A017] font-semibold">Coming Soon:</span>
+              <span>Facebook</span>
+              <span>Instagram</span>
+              <span>X</span>
+              <span>Online Portal</span>
             </div>
           </div>
         </section>
 
-        <GallerySection />
-
-        {/* Footer - Navy theme matching Seven Mountains */}
+        {/* Footer */}
         <footer id="contact" className="bg-[#0D1B2A] text-white py-12 border-t border-[#D4A017]/20 scroll-mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-8">
-              <div>
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex items-center space-x-4">
                 {logoUrl ? (
-                  <img src={logoUrl} alt="BVOGI Logo" className="h-12 w-auto mb-3 object-contain" />
+                  <img src={logoUrl} alt="BVOGI Logo" className="h-10 w-auto object-contain" />
                 ) : (
-                  <div className="cursor-pointer hover:opacity-80 transition" onClick={scrollToHome}>
-                    <div className="text-2xl font-bold">
-                      <span className="text-white">BV</span>
-                      <span className="text-[#D4A017]">OGI</span>
-                    </div>
+                  <div className="text-2xl font-bold cursor-pointer hover:opacity-80 transition" onClick={scrollToHome}>
+                    <span className="text-white">BV</span>
+                    <span className="text-[#D4A017]">OGI</span>
                   </div>
                 )}
-                <p className="text-[#8A9BB0] mt-2">Believer's Voice for Global Impact</p>
-                <p className="text-sm text-[#D4A017]/80 mt-2 italic">{settings?.scripture || '"A Trumpet in Zion" — Joel 2:1'}</p>
+                <p className="text-[#8A9BB0] text-sm">Believer's Voice for Global Impact</p>
               </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-[#D4A017]">Quick Links</h4>
-                <ul className="space-y-2 text-[#8A9BB0]">
-                  <li><a href="#home" className="hover:text-[#D4A017] transition">Home</a></li>
-                  <li><a href="#about" className="hover:text-[#D4A017] transition">About</a></li>
-                  <li><a href="/seven-mountains" className="hover:text-[#D4A017] transition">Seven Mountains</a></li>
-                  <li><a href="#events" className="hover:text-[#D4A017] transition">Events</a></li>
-                  <li><a href="#contact" className="hover:text-[#D4A017] transition">Contact</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-[#D4A017]">Connect</h4>
-                <ul className="space-y-2 text-[#8A9BB0]">
-                  <li>Email: {registrationLinks?.contactEmail || 'info@bvogi.org'}</li>
-                  {registrationLinks?.whatsappGroupLink && (
-                    <li><a href={registrationLinks.whatsappGroupLink} target="_blank" rel="noopener noreferrer" className="hover:text-[#D4A017] transition">WhatsApp Group</a></li>
-                  )}
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-[#D4A017]">Follow Us</h4>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Facebook</a>
-                  <a href="#" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Instagram</a>
-                  <a href="#" className="text-[#8A9BB0] hover:text-[#D4A017] transition">X</a>
-                </div>
-                <p className="text-sm text-[#D4A017]/80 mt-4">#BelieversNeedAVoice</p>
+              
+              <div className="flex flex-wrap items-center gap-6 text-sm">
+                <a href="#home" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Home</a>
+                <a href="#mission-vision" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Mission & Vision</a>
+                <a href="#what-we-do" className="text-[#8A9BB0] hover:text-[#D4A017] transition">What We Do</a>
+                <a href="#contact" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Contact</a>
+                <a href={`mailto:${registrationLinks?.contactEmail || 'info@bvogi.org'}`} className="text-[#8A9BB0] hover:text-[#D4A017] transition">
+                  {registrationLinks?.contactEmail || 'info@bvogi.org'}
+                </a>
               </div>
             </div>
-            <div className="border-t border-[#D4A017]/20 mt-8 pt-8 text-center text-[#8A9BB0]">
+            <div className="border-t border-[#D4A017]/20 mt-6 pt-6 text-center text-[#8A9BB0] text-sm">
               <p>
                 © 2024{' '}
                 <button onClick={scrollToHome} className="hover:opacity-80 transition">
