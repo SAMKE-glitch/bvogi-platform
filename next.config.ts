@@ -2,7 +2,6 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // Remove webpack config - Turbopack handles it automatically
   images: {
     remotePatterns: [
       {
@@ -13,7 +12,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Empty turbopack config to silence the warning
   turbopack: {},
 };
 

@@ -8,9 +8,6 @@ import { client } from '../sanity/lib/client';
 import { urlFor } from '../sanity/lib/image';
 import GallerySection from '../components/GallerySection';
 
-// Add a fallback logo URL
-const FALLBACK_LOGO = '/images/logo.png';
-
 interface Settings {
   logo?: any;
   heroBackground?: any;
@@ -58,11 +55,9 @@ export default function Home() {
         setSettings(settingsData);
         
         if (settingsData?.logo) {
-          const logo = urlFor(settingsData.logo).url();
+          // Use the image URL builder with proper formatting
+          const logo = urlFor(settingsData.logo).width(200).height(200).url();
           setLogoUrl(logo);
-        } else {
-          // Use fallback if no logo in Sanity
-          setLogoUrl(FALLBACK_LOGO);
         }
         if (settingsData?.heroBackground) {
           setHeroUrl(urlFor(settingsData.heroBackground).url());
@@ -81,8 +76,6 @@ export default function Home() {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
-        // Use fallback on error
-        setLogoUrl(FALLBACK_LOGO);
       }
     }
     fetchData();
@@ -137,10 +130,15 @@ export default function Home() {
             >
               {logoUrl ? (
                 <>
-                  <img 
+                  {/* Use Next.js Image for better handling */}
+                  <Image 
                     src={logoUrl} 
                     alt="BVOGI Logo" 
+                    width={40}
+                    height={40}
                     className="h-10 w-auto object-contain group-hover:scale-105 transition duration-300" 
+                    priority
+                    unoptimized
                   />
                   <span className="text-xl font-bold hidden sm:inline">
                     <span className="text-gray-800">BV</span>
@@ -196,7 +194,6 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Rest of your component remains the same */}
       <div id="home" className="pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden min-h-[90vh] flex items-end pb-20">
@@ -367,9 +364,14 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center space-x-4">
                 {logoUrl ? (
-                  <button onClick={scrollToHome} className="cursor-pointer hover:opacity-80 transition">
-                    <img src={logoUrl} alt="BVOGI Logo" className="h-10 w-auto object-contain" />
-                  </button>
+                  <Image 
+                    src={logoUrl} 
+                    alt="BVOGI Logo" 
+                    width={40}
+                    height={40}
+                    className="h-10 w-auto object-contain" 
+                    unoptimized
+                  />
                 ) : (
                   <button onClick={scrollToHome} className="text-2xl font-bold cursor-pointer hover:opacity-80 transition">
                     <span className="text-white">BV</span>
