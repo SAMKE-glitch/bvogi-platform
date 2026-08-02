@@ -121,10 +121,18 @@ export default function Home() {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
+            <button 
+              onClick={scrollToHome}
+              className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition group"
+              aria-label="Go to Home"
+            >
               {logoUrl ? (
                 <>
-                  <img src={logoUrl} alt="BVOGI Logo" className="h-10 w-auto object-contain" />
+                  <img 
+                    src={logoUrl} 
+                    alt="BVOGI Logo" 
+                    className="h-10 w-auto object-contain group-hover:scale-105 transition duration-300" 
+                  />
                   <span className="text-xl font-bold hidden sm:inline">
                     <span className="text-gray-800">BV</span>
                     <span className="text-[#D4A017]">OGI</span>
@@ -137,7 +145,7 @@ export default function Home() {
                 </div>
               )}
               <div className="hidden md:block text-xs text-gray-500 ml-1">Joel 2:1</div>
-            </div>
+            </button>
 
             <div className="hidden md:flex space-x-8">
               {navLinks.map((link) => (
@@ -180,31 +188,38 @@ export default function Home() {
       </nav>
 
       <div id="home" className="pt-16">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden min-h-[90vh] flex items-center">
+        {/* Hero Section with gradient that blends into Mission section */}
+        <section className="relative overflow-hidden min-h-[90vh] flex items-end pb-20">
           {heroUrl ? (
             <>
               <div className="absolute inset-0">
                 <img src={heroUrl} alt="BVOGI Hero Background" className="w-full h-full object-cover object-center" />
-                <div className="absolute inset-0 bg-black" style={{ opacity: settings?.heroOverlayOpacity || 0.4 }}></div>
+                {/* Gradient overlay that darkens at the bottom and fades to white at the transition */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-white/0"></div>
+                {/* Additional overlay at the very bottom for smooth transition */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
               </div>
             </>
           ) : (
             <div className="absolute inset-0 bg-gradient-to-br from-[#0D1B2A] via-[#1A2E45] to-[#243B55]"></div>
           )}
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
               <div className="mb-6">
-                <p className="text-sm md:text-base text-[#D4A017] uppercase tracking-[0.25em] font-semibold mb-3">A Trumpet in Zion — Joel 2:1</p>
-                <h1 className="text-5xl md:text-7xl font-bold tracking-wider text-white">
+                <p className="text-sm md:text-base text-[#D4A017] uppercase tracking-[0.25em] font-semibold mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                  A Trumpet in Zion — Joel 2:1
+                </p>
+                <h1 className="text-5xl md:text-7xl font-bold tracking-wider text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
                   <span className="text-white">BV</span>
                   <span className="text-[#D4A017]">OGI</span>
-                  <span className="text-white text-3xl md:text-4xl block mt-2">— Believers' Voice for Global Impact</span>
+                  <span className="text-white text-3xl md:text-4xl block mt-2 drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
+                    — Believers' Voice for Global Impact
+                  </span>
                 </h1>
               </div>
               
-              <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+              <p className="text-lg md:text-xl text-white max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                 A platform for believers across Kenya, and eventually the globe, to speak into the nations they live in — through advocacy, research, and policy development.
               </p>
               
@@ -217,7 +232,7 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={handleLearnMoreClick}
-                  className="border-2 border-[#D4A017] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#D4A017] hover:text-[#0D1B2A] transition"
+                  className="border-2 border-[#D4A017] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#D4A017] hover:text-[#0D1B2A] transition drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
                 >
                   Learn More
                 </button>
@@ -226,8 +241,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mission & Vision Section */}
-        <section id="mission-vision" className="py-20 bg-white scroll-mt-16">
+        {/* Mission & Vision Section - Clean white background */}
+        <section id="mission-vision" className="py-20 bg-white scroll-mt-16 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Mission & Vision</h2>
@@ -300,7 +315,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gallery Section */}
         <GallerySection />
 
         {/* Registration CTA */}
@@ -341,12 +355,14 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center space-x-4">
                 {logoUrl ? (
-                  <img src={logoUrl} alt="BVOGI Logo" className="h-10 w-auto object-contain" />
+                  <button onClick={scrollToHome} className="cursor-pointer hover:opacity-80 transition">
+                    <img src={logoUrl} alt="BVOGI Logo" className="h-10 w-auto object-contain" />
+                  </button>
                 ) : (
-                  <div className="text-2xl font-bold cursor-pointer hover:opacity-80 transition" onClick={scrollToHome}>
+                  <button onClick={scrollToHome} className="text-2xl font-bold cursor-pointer hover:opacity-80 transition">
                     <span className="text-white">BV</span>
                     <span className="text-[#D4A017]">OGI</span>
-                  </div>
+                  </button>
                 )}
                 <p className="text-[#8A9BB0] text-sm">Believer's Voice for Global Impact</p>
               </div>
