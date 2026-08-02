@@ -55,7 +55,6 @@ export default function Home() {
         setSettings(settingsData);
         
         if (settingsData?.logo) {
-          // Use the image URL builder with proper formatting
           const logo = urlFor(settingsData.logo).width(200).height(200).url();
           setLogoUrl(logo);
         }
@@ -130,7 +129,6 @@ export default function Home() {
             >
               {logoUrl ? (
                 <>
-                  {/* Use Next.js Image for better handling */}
                   <Image 
                     src={logoUrl} 
                     alt="BVOGI Logo" 
@@ -364,14 +362,16 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center space-x-4">
                 {logoUrl ? (
-                  <Image 
-                    src={logoUrl} 
-                    alt="BVOGI Logo" 
-                    width={40}
-                    height={40}
-                    className="h-10 w-auto object-contain" 
-                    unoptimized
-                  />
+                  <button onClick={scrollToHome} className="cursor-pointer hover:opacity-80 transition">
+                    <Image 
+                      src={logoUrl} 
+                      alt="BVOGI Logo" 
+                      width={40}
+                      height={40}
+                      className="h-10 w-auto object-contain" 
+                      unoptimized
+                    />
+                  </button>
                 ) : (
                   <button onClick={scrollToHome} className="text-2xl font-bold cursor-pointer hover:opacity-80 transition">
                     <span className="text-white">BV</span>
@@ -392,14 +392,11 @@ export default function Home() {
               </div>
             </div>
             <div className="border-t border-[#D4A017]/20 mt-6 pt-6 text-center text-[#8A9BB0] text-sm">
-              <p>
-                © 2024{' '}
-                <button onClick={scrollToHome} className="hover:opacity-80 transition">
-                  <span className="text-white">BV</span>
-                  <span className="text-[#D4A017]">OGI</span>
-                </button>
-                . Positioned for Global Impact.
-              </p>
+              <button onClick={scrollToHome} className="hover:opacity-80 transition">
+                <span className="text-white">BV</span>
+                <span className="text-[#D4A017]">OGI</span>
+              </button>
+              <span> . Positioned for Global Impact.</span>
             </div>
           </div>
         </footer>
