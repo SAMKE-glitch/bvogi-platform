@@ -1,126 +1,431 @@
 # BVOGI Digital Platform
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)](https://bvogi-platform.vercel.app)
+[![Production](https://img.shields.io/badge/Status-Production-success)](#)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)](https://www.vercel.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC)](https://tailwindcss.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC)](https://tailwindcss.com/)
+[![Sanity CMS](https://img.shields.io/badge/Sanity-CMS-red)](https://www.sanity.io/)
+[![License](https://img.shields.io/badge/License-Proprietary-red)](#)
 
-**BVOGI (Believer's Voice for Global Impact)** is a Christian youth movement focused on authentic worship, leadership development, systems building, community transformation, and spiritual growth.
+---
 
-🌍 **Live URL:** [https://bvogi-platform.vercel.app](https://bvogi-platform.vercel.app)
+## Overview
 
+**BVOGI (Believer's Voice for Global Impact)** is a Christian youth movement dedicated to authentic worship, leadership development, discipleship, community transformation, and global impact.
+BVoGI is not another church programme — it is a platform for believers across Kenya, and eventually the globe, to speak into the nations they live in. We exist because faith was never meant to stay silent in the public square: in governance, education, media, business, and culture, believers have a voice and a mandate to use it./A Christian program to contribute towards social \& economic development for marginalized communities by promoting good governance, holistic education \& peace through advocacy, research and policy development.
+This repository contains the official source code for the BVOGI digital platform, built using modern web technologies with a headless CMS architecture to enable scalable content management.
 
-## 🚀 Features
+**Website:** https://www.bvogi.org
 
-### ✅ Implemented
-- Responsive homepage with all sections
-- Sticky navigation bar (mobile + desktop)
-- Vision & Mission display
-- Core focus areas
-- Monday prayer meeting promotion
-- Leaders selection criteria
-- Upcoming events preview
-- Footer with quick links
-- Yellow/Black brand color scheme
-- Joel 2:1 scripture integration
+**Admin Studio:** https://www.bvogi.org/studio
 
-### ⏳ In Progress
-- Sanity CMS integration for dynamic content
-- Admin dashboard for non-technical content management
+---
 
-### 📅 Planned
-- Member registration (Google Forms + QR code)
-- Events management system
-- Photo gallery (Cloudinary integration)
-- Announcements system
-- Testimonials section
-- Team members directory
+# 📋 Project Status
 
-## 🛠️ Technology Stack
+**Current Release:** v1.0 (Production)
 
-| Technology | Purpose |
-|------------|---------|
-| **Next.js 16** | React framework with App Router |
-| **TypeScript** | Type safety |
-| **Tailwind CSS 4** | Styling & responsiveness |
-| **Framer Motion** | Animations |
-| **Lucide React** | Icons |
-| **Vercel** | Hosting & deployment |
-| **Sanity** | Headless CMS (coming) |
+| Status | Description |
+|---------|-------------|
+| ✅ Production Website | Live |
+| ✅ Responsive UI | Complete |
+| ✅ Sanity CMS | Integrated |
+| ✅ Custom Domain | Configured |
+| ✅ SSL Certificate | Enabled |
+| ✅ Mobile Responsive | Complete |
+| 🚧 Phase 2 | Planned |
 
-## 📁 Project Structure
+---
 
-📁 Project Structure Explained
-```
-~/bvogi-platform/                          # Root directory
-│
-├── 📄 Configuration Files (Root level)
-│   ├── package.json                        # Dependencies & scripts
-│   ├── package-lock.json                   # Locked versions
-│   ├── tsconfig.json                       # TypeScript config
-│   ├── tailwind.config.ts                  # Tailwind CSS config
-│   ├── postcss.config.mjs                  # PostCSS config (Tailwind v4)
-│   ├── next.config.ts                      # Next.js config
-│   ├── eslint.config.mjs                   # Code linting
-│   ├── next-env.d.ts                       # Next.js TypeScript types
-│   └── .gitignore                          # Files Git ignores
-│
-├── 📁 src/                                 # MAIN SOURCE CODE
-│   ├── 📁 app/                             # Next.js App Router (PAGES)
-│   │   ├── layout.tsx                      # Root layout (wraps all pages)
-│   │   ├── page.tsx                        # HOMEPAGE (what users see)
-│   │   └── globals.css                     # Global styles + Tailwind
-│   │
-│   ├── 📁 components/                      # REUSABLE UI COMPONENTS
-│   │   ├── layout/                         # Navbar, Footer (coming soon)
-│   │   ├── sections/                       # Hero, Events, etc. (coming soon)
-│   │   └── ui/                             # Buttons, Cards (coming soon)
-│   │
-│   ├── 📁 sanity/                          # SANITY CMS (to be implemented)
-│   │   ├── schemas/                        # Event, Announcement schemas
-│   │   └── lib/                            # Sanity client config
-│   │
-│   ├── 📁 lib/                             # UTILITY FUNCTIONS
-│   ├── 📁 hooks/                           # Custom React hooks
-│   ├── 📁 styles/                          # Additional styles
-│   └── 📁 types/                           # TypeScript type definitions
-│
-├── 📁 public/                              # STATIC ASSETS
-│   └── (images, icons, favicon, logos)
-│
-└── 📁 node_modules/                        # DEPENDENCIES (don't touch)
-```
-🎨 Component Structure Plan (Refactoring)
-Currently everything is in ONE file (page.tsx). We'll split into:
-```
-src/components/sections/
-├── Hero.tsx
-├── About.tsx
-├── VisionMission.tsx
-├── FocusAreas.tsx
-├── PrayerMeeting.tsx
-├── LeadersCriteria.tsx
-├── Events.tsx
-├── CTA.tsx
-└── Footer.tsx
+# 📸 Screenshots
+
+> Add screenshots after uploading them.
+
+```text
+docs/images/
+├── homepage.png
+├── gallery.png
+├── leadership.png
+└── studio.png
 ```
 
+Example:
 
-## 🏃‍♂️ Getting Started
+```md
+![Homepage](docs/images/homepage.png)
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+![Gallery](docs/images/gallery.png)
 
-### Installation
+![Sanity Studio](docs/images/studio.png)
+```
+
+---
+
+# 🚀 Features
+
+## ✅ Implemented
+
+- Responsive homepage
+- Mobile-first design
+- Sticky navigation
+- Hero banner with dynamic CMS content
+- Mission & Vision section
+- Seven Pillars of Influence
+- Dynamic leadership section
+- Dynamic gallery with lightbox
+- Registration CTA
+- Google Forms integration
+- QR Code support
+- Dynamic footer
+- Custom domain
+- SSL Certificate
+- Sanity CMS
+- Password-protected Admin Studio
+- SEO metadata
+- Optimized images
+- Accessible UI components
+
+---
+
+## 🚧 In Progress
+
+- Leadership profiles
+- Event population
+- Ministry content
+
+---
+
+## 📅 Phase 2 Roadmap
+
+- Member Portal
+- Authentication
+- Volunteer Management
+- Blog
+- Donations
+- Livestream
+- Email Notifications
+- Analytics Dashboard
+- Community Directory
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                    Browser
+                       │
+                       ▼
+             Next.js 16 (App Router)
+                       │
+        ┌──────────────┼───────────────┐
+        │              │               │
+        ▼              ▼               ▼
+   Sanity CMS     Google Forms     Vercel Hosting
+        │
+        ▼
+ Dynamic Content Delivery
+```
+
+---
+
+# 🛠 Technology Stack
+
+| Technology | Purpose | Version |
+|------------|---------|---------|
+| Next.js | React Framework | 16 |
+| TypeScript | Type Safety | 5.x |
+| Tailwind CSS | Styling | 4.x |
+| Framer Motion | Animations | Latest |
+| Lucide React | Icons | Latest |
+| Sanity CMS | Headless CMS | Latest |
+| Vercel | Deployment | Latest |
+| Google Forms | Registration | — |
+| Git & GitHub | Version Control | — |
+
+---
+
+# 📊 Project Overview
+
+| Metric | Value |
+|---------|------:|
+| Framework | Next.js 16 |
+| Language | TypeScript |
+| Styling | Tailwind CSS 4 |
+| CMS | Sanity |
+| Deployment | Vercel |
+| Architecture | JAMstack |
+| Rendering | SSR + Static Generation |
+| Status | Production |
+
+---
+
+# 🧩 Design Principles
+
+- Component-first architecture
+- Mobile-first responsive design
+- Headless CMS
+- Type-safe development
+- Reusable UI components
+- Performance optimization
+- Accessibility focused
+- SEO optimized
+- Scalable architecture
+
+---
+
+# 📁 Project Structure
+
+```text
+bvogi-platform/
+│
+├── public/
+│
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── lib/
+│   ├── sanity/
+│   ├── styles/
+│   └── types/
+│
+├── package.json
+├── next.config.ts
+├── tailwind.config.ts
+├── postcss.config.mjs
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+# 📦 Sanity Schemas
+
+| Schema | Description |
+|---------|-------------|
+| Events | Upcoming events |
+| Announcements | Ministry updates |
+| Gallery | Photo gallery |
+| Leadership | Team members |
+| Testimonials | Member testimonies |
+| Site Settings | Hero, Logo, Branding |
+| Registration | Google Form & QR |
+| Term Settings | Leadership terms |
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env.local` file.
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_TOKEN=your_token
+```
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+- Node.js 20+
+- npm
+- Git
+- Sanity Account
+
+---
+
+## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/SAMKE-glitch/bvogi-platform.git
+
 cd bvogi-platform
 
-# Install dependencies
 npm install
+```
 
-# Run development server
+---
+
+## Development
+
+```bash
 npm run dev
+```
+
+Visit:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| npm run dev | Start development server |
+| npm run build | Create production build |
+| npm run start | Start production server |
+| npm run lint | Run ESLint |
+| npm run type-check | TypeScript checking |
+
+---
+
+# 🚢 Deployment
+
+The application is automatically deployed using **Vercel** whenever changes are pushed to the production branch.
+
+Manual production build:
+
+```bash
+npm run build
+```
+
+---
+
+# 👨‍💼 Content Management
+
+Administrators can update website content without touching code.
+
+## Workflow
+
+1. Visit `/studio`
+2. Sign in
+3. Select a content type
+4. Create or edit content
+5. Click **Publish**
+6. Changes appear automatically on the website
+
+---
+
+# 🛣 Roadmap
+
+## Phase 1
+
+- ✅ Public Website
+- ✅ Responsive Design
+- ✅ CMS
+- ✅ Registration
+- ✅ Deployment
+
+## Phase 2
+
+- Authentication
+- Member Portal
+- Blog
+- Donations
+- Volunteer System
+- Analytics
+
+## Phase 3
+
+- Mobile Application
+- Push Notifications
+- Community Dashboard
+- Ministry Reporting
+
+---
+
+# 🤝 Contributing
+
+This repository is privately maintained.
+
+Feature requests and improvements should be submitted through the internal development workflow.
+
+---
+
+# 📄 License
+
+**Copyright © BVOGI.**
+
+This repository contains proprietary software developed for BVOGI.
+
+Unauthorized copying, modification, distribution, or commercial use of this software is prohibited without written permission.
+
+---
+
+# 📞 Contact
+
+**Website**
+
+https://www.bvogi.org
+
+**Email**
+
+info@bvogi.org
+
+**Prayer Meeting**
+
+Every Monday — 7:00 PM (EAT)
+
+---
+
+# 🙏 Acknowledgements
+
+Built with ❤️ for the BVOGI community.
+
+Powered by:
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Sanity CMS
+- Vercel
+
+---
+
+## Scripture Anchor
+
+> **Joel 2:1**
+>
+> *"Blow the trumpet in Zion..."*
+
+---
+
+## Motto
+
+**Positioned for Global Impact**
+
+---
+
+## Hashtags
+
+```
+#BelieversNeedAVoice
+#BVOGI
+#BeTheVoice
+#PositionedForGlobalImpact
+```
+
+## 👨‍💻 Project Team
+
+### Technical Lead & Lead Developer
+
+**Samwel Mwawasi**  
+*CTO, SAMKE.tech*
+
+- **Role:** Technical Lead, Lead Developer & CTO
+- **Responsibilities:**
+  - Full-stack architecture design
+  - Next.js & Sanity CMS implementation
+  - DevOps & deployment (Vercel, DNS, SSL)
+  - Technical strategy & roadmap
+  - Team leadership & code review
+- **Company:** [SAMKE.tech](https://samke.tech)
+
+---
+
+## 📞 Contact
+
+**Project Lead:** Samwel Mwawasi  
+**Email:** sammythemwa@gmail.com  
+**Company:** SAMKE.tech  
+**Website:** https://samke.tech
+
+
+---
