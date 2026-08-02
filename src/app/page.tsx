@@ -272,7 +272,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* What We Believe & Do Section - Updated */}
+        {/* What We Believe & Do Section */}
         <section id="what-we-do" className="py-20 bg-gray-50 scroll-mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -397,6 +397,10 @@ export default function Home() {
                 <span className="text-[#D4A017]">OGI</span>
               </button>
               <span> . Positioned for Global Impact.</span>
+              <br />
+              <span className="text-xs text-[#8A9BB0] mt-2 block">
+                Developed by <a href="https://samke.tech" target="_blank" rel="noopener noreferrer" className="text-[#D4A017] hover:underline">SAMKE.tech</a>
+              </span>
             </div>
           </div>
         </footer>
