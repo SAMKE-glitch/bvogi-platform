@@ -417,3 +417,15 @@ Powered by:
   - Technical strategy & roadmap
   - Team leadership & code review
 - **Company:** [SAMKE.tech](https://samke.tech)
+
+---
+
+## 📞 Contact
+
+**Project Lead:** Samwel Mwawasi  
+**Email:** sammythemwa@gmail.com  
+**Company:** SAMKE.tech  
+**Website:** https://samke.tech
+
+
+---
