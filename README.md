@@ -13,7 +13,7 @@
 ## Overview
 
 **BVOGI (Believer's Voice for Global Impact)** is a Christian youth movement dedicated to authentic worship, leadership development, discipleship, community transformation, and global impact.
-
+BVoGI is not another church programme — it is a platform for believers across Kenya, and eventually the globe, to speak into the nations they live in. We exist because faith was never meant to stay silent in the public square: in governance, education, media, business, and culture, believers have a voice and a mandate to use it./A Christian program to contribute towards social \& economic development for marginalized communities by promoting good governance, holistic education \& peace through advocacy, research and policy development.
 This repository contains the official source code for the BVOGI digital platform, built using modern web technologies with a headless CMS architecture to enable scalable content management.
 
 **Website:** https://www.bvogi.org
