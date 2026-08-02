@@ -272,7 +272,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* What We Believe & Do Section */}
+        {/* What We Believe & Do Section - Updated */}
         <section id="what-we-do" className="py-20 bg-gray-50 scroll-mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -282,7 +282,7 @@ export default function Home() {
             
             <div className="max-w-4xl mx-auto text-center mb-12">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                BVoGI is not another church programme — it is a platform for believers across Kenya, and eventually the globe, to speak into the nations they live in. We exist because faith was never meant to stay silent in the public square: in governance, education, media, business, and culture, believers have a voice and a mandate to use it.
+                A Christian program to contribute towards social & economic development for marginalized communities by promoting good governance, holistic education & peace through advocacy, research and policy development.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 We are believers, men and women who believe in the Gospel of Christ, are saved and Spirit-filled, called not just to feel transformed but to live a life of impact. Our work is to organise that calling into action: research, advocacy, and leadership that shapes real outcomes in the communities and nations we belong to.
