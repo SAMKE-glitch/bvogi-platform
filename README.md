@@ -401,3 +401,19 @@ Powered by:
 #BeTheVoice
 #PositionedForGlobalImpact
 ```
+
+## 👨‍💻 Project Team
+
+### Technical Lead & Lead Developer
+
+**Samwel Mwawasi**  
+*CTO, SAMKE.tech*
+
+- **Role:** Technical Lead, Lead Developer & CTO
+- **Responsibilities:**
+  - Full-stack architecture design
+  - Next.js & Sanity CMS implementation
+  - DevOps & deployment (Vercel, DNS, SSL)
+  - Technical strategy & roadmap
+  - Team leadership & code review
+- **Company:** [SAMKE.tech](https://samke.tech)
