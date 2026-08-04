@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { client } from '../sanity/lib/client';
 import { urlFor } from '../sanity/lib/image';
 import GallerySection from '../components/GallerySection';
+import VideoSection from '../components/VideoSection';
+import LeadershipSection from '../components/LeadershipSection';
 
 interface Settings {
   logo?: any;
@@ -322,7 +324,10 @@ export default function Home() {
           </div>
         </section>
 
+        <LeadershipSection />
+
         <GallerySection />
+        <VideoSection />
 
         {/* Registration CTA */}
         <section className="py-20 bg-[#0D1B2A]">
@@ -391,6 +396,26 @@ export default function Home() {
                 </a>
               </div>
             </div>
+            
+            {/* Social Media & YouTube Section */}
+            <div className="border-t border-[#D4A017]/20 mt-6 pt-6">
+              <div className="flex flex-wrap justify-center items-center gap-6 text-sm">
+                <span className="text-[#8A9BB0]">Follow Us:</span>
+                <a href="#" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Facebook</a>
+                <a href="#" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Instagram</a>
+                <a href="#" className="text-[#8A9BB0] hover:text-[#D4A017] transition">X</a>
+                <a 
+                  href="https://www.youtube.com/@BVOGI" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-[#8A9BB0] hover:text-[#D4A017] transition flex items-center gap-1"
+                >
+                  <span>▶</span> YouTube
+                </a>
+              </div>
+              <p className="text-xs text-[#8A9BB0] mt-3 text-center">Subscribe to our YouTube channel for updates</p>
+            </div>
+
             <div className="border-t border-[#D4A017]/20 mt-6 pt-6 text-center text-[#8A9BB0] text-sm">
               <button onClick={scrollToHome} className="hover:opacity-80 transition">
                 <span className="text-white">BV</span>
