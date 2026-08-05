@@ -84,6 +84,7 @@ export default function Home() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
     { name: 'Mission & Vision', href: '#mission-vision' },
     { name: 'What We Do', href: '#what-we-do' },
     { name: 'Contact', href: '#contact' },
@@ -250,6 +251,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About BVOGI Section */}
+        <section id="about" className="py-20 bg-white scroll-mt-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About BVOGI</h2>
+              <div className="w-20 h-1 bg-[#D4A017] mx-auto"></div>
+            </div>
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                BVOGI (Believer's Voice for Global Impact) is an interdenominational national movement focused on 
+                authentic worship, leadership development, systems building, community transformation, and spiritual growth.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                We are raising a generation of believers who will impact their communities 
+                and nations for Christ through intentional discipleship, mentorship, and strategic outreach.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Mission & Vision Section */}
         <section id="mission-vision" className="py-20 bg-white scroll-mt-16 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -388,6 +409,7 @@ export default function Home() {
               
               <div className="flex flex-wrap items-center gap-6 text-sm">
                 <a href="#home" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Home</a>
+                <a href="#about" className="text-[#8A9BB0] hover:text-[#D4A017] transition">About</a>
                 <a href="#mission-vision" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Mission & Vision</a>
                 <a href="#what-we-do" className="text-[#8A9BB0] hover:text-[#D4A017] transition">What We Do</a>
                 <a href="#contact" className="text-[#8A9BB0] hover:text-[#D4A017] transition">Contact</a>
